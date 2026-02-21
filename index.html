@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Video Click Redirect</title>
+  <style>
+    body {
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:100vh;
+      margin:0;
+      background:#000;
+    }
+    video {
+      width:100%;
+      max-width:720px;
+      border-radius:10px;
+    }
+  </style>
+</head>
+<body>
+
+<video id="vid" controls playsinline preload="metadata">
+  <source src="https://cdn.videy.co/xn4L8uRk1.mp4" type="video/mp4">
+</video>
+
+<script>
+  const video = document.getElementById("vid");
+
+  // GANTI LINK IKLAN DI SINI
+  const adUrl = "https://s.shopee.co.id/7AXQ9Zm5Ua";
+
+  let alreadyRedirect = false;
+
+  video.addEventListener("play", function () {
+    if (alreadyRedirect) return;
+
+    alreadyRedirect = true;
+    video.pause(); // hentikan video
+    window.open(adUrl, "_blank"); // buka TAB BARU
+  });
+</script>
+
+</body>
+</html>
